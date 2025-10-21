@@ -8,10 +8,17 @@
   "plugins": [
     {
       "name": "ask-questions",
-      "source": "https://github.com/mcourant/ask-questions-plugin",
       "description": "Automatically append a customizable prompt to all your messages",
       "version": "1.0.0",
-      "author": "Maxime Courant",
+      "author": {
+        "name": "Maxime Courant",
+        "email": "maxime.courant.pro@gmail.com"
+      },
+      "source": {
+        "type": "github",
+        "repo": "mcourant/ask-questions-plugin"
+      },
+      "category": "productivity",
       "license": "MIT"
     }
   ]
