@@ -31,7 +31,7 @@
   "commands": {
     "ask-questions": {
       "description": "Manage the Ask Questions plugin (enable, disable, configure)",
-      "file": "commands/ask-questions.md"
+      "source": "commands/ask-questions.md"
     }
   }
 }
