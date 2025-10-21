@@ -1,0 +1,38 @@
+{
+  "name": "ask-questions",
+  "version": "1.0.0",
+  "description": "Automatically append a customizable prompt (like 'Ask questions if needed') to all your messages to Claude",
+  "author": "Maxime Courant",
+  "license": "MIT",
+  "homepage": "https://github.com/mcourant/ask-questions-plugin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mcourant/ask-questions-plugin"
+  },
+  "keywords": [
+    "prompt",
+    "automation",
+    "questions",
+    "hooks"
+  ],
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/user-prompt-submit.py"
+          }
+        ]
+      }
+    ]
+  },
+  "commands": [
+    {
+      "name": "ask-questions",
+      "description": "Manage the Ask Questions plugin (enable, disable, configure)",
+      "file": "commands/ask-questions.md"
+    }
+  ]
+}

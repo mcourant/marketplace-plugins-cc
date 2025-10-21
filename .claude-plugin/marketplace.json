@@ -14,10 +14,7 @@
         "name": "Maxime Courant",
         "email": "maxime.courant.pro@gmail.com"
       },
-      "source": {
-        "type": "github",
-        "repo": "mcourant/ask-questions-plugin"
-      },
+      "source": "./plugins/ask-questions",
       "category": "productivity",
       "license": "MIT"
     }

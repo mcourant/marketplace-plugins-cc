@@ -1,190 +1,71 @@
-# Ask Questions - Claude Code Plugin
+# Maxime's Claude Code Plugin Marketplace
 
-A Claude Code plugin that automatically appends a customizable prompt (like "Ask questions if needed") to all your messages to Claude. This helps ensure Claude asks clarifying questions instead of making assumptions.
+A personal marketplace for Claude Code plugins, making it easy to discover and install custom productivity enhancements.
 
-## Features
+## Available Plugins
 
-- Automatically append custom text to every prompt you submit
+### Ask Questions
+Automatically append a customizable prompt to all your messages to Claude, ensuring it asks clarifying questions instead of making assumptions.
+
+**Features:**
+- Automatically append custom text to every prompt
 - Fully configurable - enable/disable and customize the text
 - Simple slash commands for easy management
 - Lightweight and non-intrusive
 
+[Read more about Ask Questions →](./plugins/ask-questions/README-plugin.md)
+
 ## Installation
 
-### Option 1: Install from Marketplace (Recommended)
+### Add This Marketplace
 
-1. Add the marketplace to Claude Code:
-   ```
-   /plugin marketplace add https://github.com/yourusername/claude-plugins-marketplace
-   ```
-
-2. Install the plugin:
-   ```
-   /plugin install ask-questions
-   ```
-
-### Option 2: Local Installation (for testing)
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/ask-questions-plugin.git
-   cd ask-questions-plugin
-   ```
-
-2. Install the plugin locally in Claude Code:
-   ```
-   /plugin install .
-   ```
-
-## Usage
-
-### Basic Commands
-
-The plugin provides the `/ask-questions` command with the following actions:
-
-#### Check Status
+Add this marketplace to your Claude Code:
 ```
-/ask-questions status
-```
-Shows whether the plugin is enabled and what text is being appended.
-
-#### Enable Plugin
-```
-/ask-questions enable
-```
-Enables the plugin to start appending text to your prompts.
-
-#### Disable Plugin
-```
-/ask-questions disable
-```
-Disables the plugin temporarily without uninstalling it.
-
-#### Change Custom Prompt
-```
-/ask-questions set-prompt Your custom text here
-```
-Updates the text that gets appended to your prompts.
-
-### Examples
-
-**Example 1: Using the default prompt**
-```
-/ask-questions status
-```
-Output: Plugin is enabled with prompt: "Pose des questions si nécessaires"
-
-**Example 2: Customizing the prompt**
-```
-/ask-questions set-prompt Please ask clarifying questions before proceeding
+/plugin marketplace add https://github.com/mcourant/marketplace-plugins-cc
 ```
 
-**Example 3: Temporarily disabling**
+### Install Plugins
+
+Once the marketplace is added, install any plugin:
 ```
-/ask-questions disable
-```
-Your prompts will be sent without any additional text until you re-enable.
-
-## How It Works
-
-The plugin uses Claude Code's `UserPromptSubmit` hook to automatically append text to every prompt you submit:
-
-1. When you submit a prompt, the hook is triggered
-2. The plugin reads your configuration from `.claude-plugin/config.json`
-3. If enabled, it appends your custom text to the prompt
-4. Claude receives your original prompt plus the additional context
-
-## Configuration
-
-The plugin's configuration is stored in `.claude-plugin/config.json`:
-
-```json
-{
-  "enabled": true,
-  "customPrompt": "Pose des questions si nécessaires"
-}
+/plugin install ask-questions
 ```
 
-You can modify this file directly or use the `/ask-questions` commands.
+## Plugin List
 
-## Use Cases
+| Plugin | Description | Category | Version |
+|--------|-------------|----------|---------|
+| ask-questions | Automatically append customizable prompts to messages | Productivity | 1.0.0 |
 
-- **Encourage exploration**: Add "Ask questions if you need more context"
-- **Prevent assumptions**: Add "Please confirm before making changes"
-- **Improve accuracy**: Add "Ask clarifying questions to ensure you understand correctly"
-- **Project-specific reminders**: Add custom instructions relevant to your workflow
+## Creating Your Own Plugins
 
-## Uninstalling
+Interested in creating your own Claude Code plugins? Check out the [official plugin documentation](https://docs.claude.com/en/docs/claude-code/plugins).
 
-To remove the plugin:
+## Marketplace Structure
+
 ```
-/plugin uninstall ask-questions
-```
-
-## Development
-
-### Project Structure
-```
-ask-questions-plugin/
+marketplace-plugins-cc/
 ├── .claude-plugin/
-│   ├── plugin.json          # Plugin manifest
-│   ├── config.json          # User configuration
-│   ├── commands/
-│   │   └── ask-questions.md # Slash command definitions
-│   └── scripts/
-│       └── user-prompt-submit.py  # Hook implementation
+│   └── marketplace.json          # Marketplace manifest
+├── plugins/
+│   └── ask-questions/            # Individual plugin
+│       ├── .claude-plugin/
+│       │   ├── plugin.json
+│       │   ├── config.json
+│       │   ├── commands/
+│       │   └── scripts/
+│       └── README-plugin.md
 └── README.md
 ```
 
-### Local Testing
+## Contributing
 
-1. Make changes to the plugin files
-2. Reinstall the plugin:
-   ```
-   /plugin install .
-   ```
-3. Test your changes by submitting prompts
-
-### Contributing
-
-Contributions are welcome! Please feel free to submit issues or pull requests.
+Want to add your plugin to this marketplace? Feel free to submit a pull request!
 
 ## License
 
-MIT License - see LICENSE file for details
+Individual plugins may have their own licenses. See each plugin's directory for details.
 
-## Credits
+## Support
 
-Created to make Claude Code conversations more interactive and ensure proper clarification before action.
-
-## Troubleshooting
-
-### Plugin not working?
-
-1. Check if it's enabled:
-   ```
-   /ask-questions status
-   ```
-
-2. Verify the plugin is installed:
-   ```
-   /plugin list
-   ```
-
-3. Check the configuration file exists:
-   ```bash
-   cat .claude-plugin/config.json
-   ```
-
-4. Reinstall the plugin:
-   ```
-   /plugin uninstall ask-questions
-   /plugin install ask-questions
-   ```
-
-### Need help?
-
-Open an issue on GitHub with:
-- Your Claude Code version
-- Steps to reproduce the problem
-- Expected vs actual behavior
+For issues with specific plugins, please check the plugin's individual documentation. For marketplace-related issues, open an issue on this repository.
