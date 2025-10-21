@@ -2,12 +2,12 @@
   "name": "ask-questions",
   "version": "1.0.0",
   "description": "Automatically append a customizable prompt (like 'Ask questions if needed') to all your messages to Claude",
-  "author": "Your Name",
+  "author": "Maxime Courant",
   "license": "MIT",
-  "homepage": "https://github.com/yourusername/ask-questions-plugin",
+  "homepage": "https://github.com/mcourant/ask-questions-plugin",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/ask-questions-plugin"
+    "url": "https://github.com/mcourant/ask-questions-plugin"
   },
   "keywords": [
     "prompt",
