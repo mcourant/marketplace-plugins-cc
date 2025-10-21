@@ -18,7 +18,6 @@
   "hooks": {
     "UserPromptSubmit": [
       {
-        "matcher": "*",
         "hooks": [
           {
             "type": "command",
@@ -27,12 +26,5 @@
         ]
       }
     ]
-  },
-  "commands": [
-    {
-      "name": "ask-questions",
-      "description": "Manage the Ask Questions plugin (enable, disable, configure)",
-      "file": "commands/ask-questions.md"
-    }
-  ]
+  }
 }
