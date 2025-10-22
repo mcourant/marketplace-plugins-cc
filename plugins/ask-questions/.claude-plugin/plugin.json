@@ -5,32 +5,5 @@
   "author": {
     "name": "Maxime Courant",
     "email": "maxime.courant.pro@gmail.com"
-  },
-  "license": "MIT",
-  "homepage": "https://github.com/mcourant/ask-questions-plugin",
-  "repository": "https://github.com/mcourant/ask-questions-plugin",
-  "keywords": [
-    "prompt",
-    "automation",
-    "questions",
-    "hooks"
-  ],
-  "hooks": {
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/user-prompt-submit.py"
-          }
-        ]
-      }
-    ]
-  },
-  "commands": {
-    "ask-questions": {
-      "description": "Manage the Ask Questions plugin (enable, disable, configure)",
-      "source": "commands/ask-questions.md"
-    }
   }
 }
