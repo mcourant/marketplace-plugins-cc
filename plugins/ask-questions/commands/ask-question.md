@@ -66,31 +66,31 @@ Based on the action requested:
 
 **Enable:**
 ```
-/ask-questions enable
+/ask-question enable
 ```
 Response: "Ask Questions plugin is now enabled. Your prompts will be automatically appended with: 'Pose des questions si nécessaires'"
 
 **Disable:**
 ```
-/ask-questions disable
+/ask-question disable
 ```
 Response: "Ask Questions plugin is now disabled."
 
 **Status:**
 ```
-/ask-questions status
+/ask-question status
 ```
 Response: "Ask Questions plugin status:
 - Enabled: true
 - Custom prompt: 'Pose des questions si nécessaires'
 
 To change settings:
-- Enable: /ask-questions enable
-- Disable: /ask-questions disable
-- Change prompt: /ask-questions set-prompt 'your new text'"
+- Enable: /ask-question enable
+- Disable: /ask-question disable
+- Change prompt: /ask-question set-prompt 'your new text'"
 
 **Set Prompt:**
 ```
-/ask-questions set-prompt Please ask clarifying questions
+/ask-question set-prompt Please ask clarifying questions
 ```
 Response: "Custom prompt updated to: 'Please ask clarifying questions'"
