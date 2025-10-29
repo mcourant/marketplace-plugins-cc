@@ -1,7 +1,9 @@
 {
+  "description": "Asks questions before prompt submission",
   "hooks": {
     "UserPromptSubmit": [
       {
+        "matcher": "*",
         "hooks": [
           {
             "type": "command",
