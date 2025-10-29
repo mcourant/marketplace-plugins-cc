@@ -29,19 +29,19 @@ The user wants to: {{action}} {{text}}
 Based on the action requested:
 
 ### For "enable":
-1. Read the current config from `.claude-plugin/config.json`
+1. Read the current config from `~/.claude/config/ask-questions.json`
 2. Set `enabled` to `true`
 3. Write the updated config back
 4. Confirm to the user that the plugin is now enabled
 
 ### For "disable":
-1. Read the current config from `.claude-plugin/config.json`
+1. Read the current config from `~/.claude/config/ask-questions.json`
 2. Set `enabled` to `false`
 3. Write the updated config back
 4. Confirm to the user that the plugin is now disabled
 
 ### For "status":
-1. Read the current config from `.claude-plugin/config.json`
+1. Read the current config from `~/.claude/config/ask-questions.json`
 2. Display:
    - Whether the plugin is enabled or disabled
    - The current custom prompt text
@@ -49,15 +49,15 @@ Based on the action requested:
 
 ### For "set-prompt":
 1. If no text parameter is provided, ask the user for the new prompt text
-2. Read the current config from `.claude-plugin/config.json`
+2. Read the current config from `~/.claude/config/ask-questions.json`
 3. Update `customPrompt` with the new text
 4. Write the updated config back
 5. Confirm the change to the user
 
 ## Important Notes
 
-- The config file is located at: `${CLAUDE_PLUGIN_ROOT}/config.json` or `.claude-plugin/config.json`
-- Always validate that the config file exists before reading
+- The config file is located at: `~/.claude/config/ask-questions.json` (global configuration)
+- Always validate that the config file exists before reading (if not, run ./install-config.sh)
 - Preserve the JSON structure when updating
 - Use the Edit tool to modify the config file
 - The plugin will automatically use the new settings on the next prompt

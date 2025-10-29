@@ -31,6 +31,22 @@ Once the marketplace is added, install any plugin:
 /plugin install ask-questions
 ```
 
+That's it! The plugin will automatically create its configuration in `~/.claude/config/ask-questions.json` on first use.
+
+### Configuration
+
+The configuration is stored globally in `~/.claude/config/ask-questions.json` and shared across all your projects.
+
+You can customize it using the built-in command:
+```
+/ask-question set-prompt "Your custom prompt here"
+```
+
+Or edit the file directly:
+```bash
+nano ~/.claude/config/ask-questions.json
+```
+
 ## Plugin List
 
 | Plugin | Description | Category | Version |
@@ -50,12 +66,19 @@ marketplace-plugins-cc/
 ├── plugins/
 │   └── ask-questions/            # Individual plugin
 │       ├── .claude-plugin/
-│       │   ├── plugin.json
-│       │   ├── config.json
-│       │   ├── commands/
-│       │   └── scripts/
+│       │   └── plugin.json       # Plugin metadata
+│       ├── commands/
+│       │   └── ask-question.md   # Slash command
+│       ├── hooks/
+│       │   └── hooks.json        # Hook definitions
+│       ├── scripts/
+│       │   └── user-prompt-submit.py  # Hook script
+│       ├── config.json           # Default config template
 │       └── README-plugin.md
 └── README.md
+
+Global Configuration (auto-created on first use):
+~/.claude/config/ask-questions.json  # User configuration (shared across projects)
 ```
 
 ## Contributing

@@ -11,11 +11,11 @@ A Claude Code plugin that automatically appends a customizable prompt (like "Ask
 
 ## Installation
 
-### Option 1: Install from Marketplace (Recommended)
+### Install from Marketplace
 
 1. Add the marketplace to Claude Code:
    ```
-   /plugin marketplace add https://github.com/yourusername/claude-plugins-marketplace
+   /plugin marketplace add https://github.com/mcourant/marketplace-plugins-cc
    ```
 
 2. Install the plugin:
@@ -23,46 +23,35 @@ A Claude Code plugin that automatically appends a customizable prompt (like "Ask
    /plugin install ask-questions
    ```
 
-### Option 2: Local Installation (for testing)
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/ask-questions-plugin.git
-   cd ask-questions-plugin
-   ```
-
-2. Install the plugin locally in Claude Code:
-   ```
-   /plugin install .
-   ```
+That's it! The plugin will automatically create `~/.claude/config/ask-questions.json` on first use, which will be shared across all your projects
 
 ## Usage
 
 ### Basic Commands
 
-The plugin provides the `/ask-questions` command with the following actions:
+The plugin provides the `/ask-question` command with the following actions:
 
 #### Check Status
 ```
-/ask-questions status
+/ask-question status
 ```
 Shows whether the plugin is enabled and what text is being appended.
 
 #### Enable Plugin
 ```
-/ask-questions enable
+/ask-question enable
 ```
 Enables the plugin to start appending text to your prompts.
 
 #### Disable Plugin
 ```
-/ask-questions disable
+/ask-question disable
 ```
 Disables the plugin temporarily without uninstalling it.
 
 #### Change Custom Prompt
 ```
-/ask-questions set-prompt Your custom text here
+/ask-question set-prompt Your custom text here
 ```
 Updates the text that gets appended to your prompts.
 
@@ -70,18 +59,18 @@ Updates the text that gets appended to your prompts.
 
 **Example 1: Using the default prompt**
 ```
-/ask-questions status
+/ask-question status
 ```
 Output: Plugin is enabled with prompt: "Pose des questions si nécessaires"
 
 **Example 2: Customizing the prompt**
 ```
-/ask-questions set-prompt Please ask clarifying questions before proceeding
+/ask-question set-prompt Please ask clarifying questions before proceeding
 ```
 
 **Example 3: Temporarily disabling**
 ```
-/ask-questions disable
+/ask-question disable
 ```
 Your prompts will be sent without any additional text until you re-enable.
 
@@ -90,13 +79,13 @@ Your prompts will be sent without any additional text until you re-enable.
 The plugin uses Claude Code's `UserPromptSubmit` hook to automatically append text to every prompt you submit:
 
 1. When you submit a prompt, the hook is triggered
-2. The plugin reads your configuration from `.claude-plugin/config.json`
+2. The plugin reads your configuration from `~/.claude/config/ask-questions.json`
 3. If enabled, it appends your custom text to the prompt
 4. Claude receives your original prompt plus the additional context
 
 ## Configuration
 
-The plugin's configuration is stored in `.claude-plugin/config.json`:
+The plugin's configuration is stored globally in `~/.claude/config/ask-questions.json`:
 
 ```json
 {
@@ -105,7 +94,7 @@ The plugin's configuration is stored in `.claude-plugin/config.json`:
 }
 ```
 
-You can modify this file directly or use the `/ask-questions` commands.
+This configuration is shared across all your projects. You can modify it directly or use the `/ask-question` commands.
 
 ## Use Cases
 
@@ -163,7 +152,7 @@ Created to make Claude Code conversations more interactive and ensure proper cla
 
 1. Check if it's enabled:
    ```
-   /ask-questions status
+   /ask-question status
    ```
 
 2. Verify the plugin is installed:
@@ -171,9 +160,9 @@ Created to make Claude Code conversations more interactive and ensure proper cla
    /plugin list
    ```
 
-3. Check the configuration file exists:
+3. Check the configuration file:
    ```bash
-   cat .claude-plugin/config.json
+   cat ~/.claude/config/ask-questions.json
    ```
 
 4. Reinstall the plugin:
